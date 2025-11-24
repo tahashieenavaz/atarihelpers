@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atarihelpers"
-version = "0.0.12"
+version = "0.0.13"
 authors = [
   { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
 ]
@@ -19,7 +19,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["numpy", "opencv-python"]
+dependencies = ["numpy", "opencv-python", "gymnasium", "ale_py"]
 keywords = ["reinforcement learning", "image", "atari", "helpers"]
 license = { file = "LICENSE" }
 urls = { Homepage="https://github.com/tahashieenavaz/atarihelpers", Repository="https://github.com/tahashieenavaz/atarihelpers", Documentation="https://github.com/tahashieenavaz/atarihelpers#readme" }

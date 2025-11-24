@@ -1,10 +1,10 @@
 # Atari Helpers
 
-A tiny toolkit for tidying up Atari observations before they hit your RL agent. Keep installs light, configs simple, and pre-processing consistent.
+Lightweight utilities for Atari reinforcement learning: launch environments fast, capture episodic video if you want, and preprocess frames so they are ready for your agent. All signal, no cargo cult. 🎯
 
-- 🚀 Quick preprocessing for Atari frames (grayscale + resize)
-- 🧰 Single helper focused on DRL needs; no extra baggage
-- ✅ Tested on Python 3.9+ with NumPy + OpenCV
+- 🎮 `make_environment`: spin up Gymnasium Atari envs with optional video recording
+- 🖼️ `process_state`: grayscale + resize frames for downstream stacks
+- 🧰 Zero-fluff dependency set (Gymnasium, ALE-Py, NumPy, OpenCV)
 
 ## Installation
 
@@ -12,21 +12,24 @@ A tiny toolkit for tidying up Atari observations before they hit your RL agent. 
 pip install atarihelpers
 ```
 
-## Usage
+## Quickstart
 
 ```python
-import gymnasium as gym
-from atarihelpers import process_state
+from atarihelpers import make_environment, process_state
 
-env = gym.make("ALE/Pong-v5")
+env = make_environment(
+    "ALE/Pong-v5",
+    record=True,       # 🎥 save videos to ./videos
+    record_every=25,   # capture every 25th episode
+)
+
 state, _ = env.reset()
-
 processed = process_state(
     state,
-    image_size=84,   # target square size
-    grayscale=True,  # convert to single channel
-    resize=True,     # skip if you want original resolution
+    image_size=84,     # target square size
+    grayscale=True,    # convert to single channel
+    resize=True,       # keep original resolution if False
 )
 ```
 
-📝 Input should be a NumPy array shaped `(H, W, C)` in BGR order (OpenCV style). The helper returns the processed NumPy array ready for stacking or feeding to your model.
+Note: inputs should be NumPy arrays shaped `(H, W, C)` in BGR order (OpenCV style). Returns the processed NumPy array ready for stacking or feeding to your model.
