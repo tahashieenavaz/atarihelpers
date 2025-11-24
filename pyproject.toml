@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atarihelpers"
+version = "0.0.1"
+authors = [
+  { name="Taha Shieenavaz", email="tahashieenavaz@gmail.com" },
+]
+description = "A curated collection of helpers needed for Atari DRL environment management."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = ["numpy", "opencv-python"]
+keywords = ["reinforcement learning", "image", "atari", "helpers"]
+license = { file = "LICENSE" }
+urls = { Homepage="https://github.com/tahashieenavaz/atarihelpers", Repository="https://github.com/tahashieenavaz/atarihelpers", Documentation="https://github.com/tahashieenavaz/atarihelpers#readme" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+atarihelpers = ["*.md", "*.txt"]
