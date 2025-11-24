@@ -2,7 +2,7 @@ import numpy
 import cv2
 
 
-# TODO we can add curated crops for every single environment
+# TODO: we can add curated crops for every single environment
 def process_state(
     state: numpy.array,
     image_size: int = 84,
