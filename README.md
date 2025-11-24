@@ -1,4 +1,4 @@
-# atarihelpers 🎮
+# Atari Helpers
 
 A tiny toolkit for tidying up Atari observations before they hit your RL agent. Keep installs light, configs simple, and pre-processing consistent.
 
